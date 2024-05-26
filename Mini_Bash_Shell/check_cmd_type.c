@@ -19,9 +19,12 @@ int get_cmd(char *input, char *cmd[]) {
     int i=0;
     char *token = strtok(input, " ");
     while (token != NULL) {
+        // printf("-> %s -> ", token);
+        cmd[i] = malloc(strlen(token)+1);
         strcpy(cmd[i++], token);
         token = strtok(NULL, " ");
     }
+    cmd[i] = malloc(8);
     cmd[i] = NULL;
     return SUCCESS;
 }

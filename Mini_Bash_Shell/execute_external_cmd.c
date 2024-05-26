@@ -8,24 +8,17 @@ int execute_external_command(char *input) {
         char *cmd[] = {0};
         get_cmd(input, cmd);
 
-        int i=0;
-        while (cmd[i] != NULL) {
-            printf("%s ", cmd[i]);
-            i++;
-        }
-        printf("\n");
-
         execvp(cmd[0], cmd);
-        printf("invalid command\n");
-        // exit()
+        printf("Command not found\n");
+        
     }
     else if (ret > 0) {
         // parent process
         int status;
         wait(&status);
-
+        // 
     }
 
-    return FAILURE;
+    // return FAILURE;
 
 }
